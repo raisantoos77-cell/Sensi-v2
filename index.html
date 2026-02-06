@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SENSI MASTER VIP - COMPLETO</title>
+    <title>SENSI MASTER VIP</title>
     <style>
         body {
             background: radial-gradient(circle, #0a0a0a 0%, #000 100%);
@@ -38,6 +38,17 @@
         }
         button:active { transform: scale(0.96); }
 
+        /* Créditos do Criador */
+        .credits {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #555;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .credits span { color: #00ff00; }
+
         #console { 
             display: none; background: #000; border: 1px solid #004400; 
             padding: 15px; border-radius: 10px; margin-top: 20px; 
@@ -45,9 +56,6 @@
         }
         .bar-container { width: 100%; height: 4px; background: #111; margin-top: 10px; border-radius: 2px; }
         .bar-fill { width: 0%; height: 100%; background: #00ff00; transition: width 0.4s; }
-        
-        .stats-final { display: none; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; text-align: center; }
-        .vip-val { color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -78,15 +86,11 @@
 
     <button onclick="masterOptimize()">EXECUTAR OTIMIZAÇÃO TOTAL</button>
 
+    <div class="credits">criado por <span>@rayyy_7x</span></div>
+
     <div id="console">
         <div id="log-text"></div>
         <div class="bar-container"><div class="bar-fill" id="fill"></div></div>
-    </div>
-
-    <div id="stats-final" class="stats-final">
-        <p style="color: #fff; font-size: 0.9em; margin-bottom: 10px;">✅ CONFIGURAÇÃO APLICADA!</p>
-        <p style="font-size: 0.8em;">Geral: <span class="vip-val">98</span> | Red Dot: <span class="vip-val">94</span></p>
-        <p style="font-size: 0.8em;">DPI Recomendada: <span class="vip-val">720</span></p>
     </div>
 </div>
 
@@ -95,10 +99,8 @@
         const consoleDiv = document.getElementById('console');
         const logText = document.getElementById('log-text');
         const fill = document.getElementById('fill');
-        const final = document.getElementById('stats-final');
         
         consoleDiv.style.display = 'block';
-        final.style.display = 'none';
         logText.innerHTML = "";
         fill.style.width = "0%";
 
@@ -107,7 +109,7 @@
             "> Estabilizando taxa de FPS...",
             "> Calibrando sensores de toque...",
             "> Reduzindo dispersão de balas...",
-            "> Sincronizando com o dispositivo...",
+            "> Sincronizando com @rayyy_7x config...",
             "> [CONCLUÍDO] Sistema Pronto!"
         ];
 
@@ -120,10 +122,8 @@
             } else {
                 clearInterval(interval);
                 setTimeout(() => {
-                    consoleDiv.style.display = 'none';
-                    final.style.display = 'block';
-                    alert("Otimização Completa! Todas as funções foram injetadas com sucesso.");
-                }, 800);
+                    alert("Otimização Completa por @rayyy_7x!");
+                }, 500);
             }
         }, 700);
     }
@@ -131,4 +131,3 @@
 
 </body>
 </html>
-
