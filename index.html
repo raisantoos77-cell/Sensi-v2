@@ -2,11 +2,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENSI MAX VIP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SENSI MASTER VIP - COMPLETO</title>
     <style>
         body {
-            background: radial-gradient(circle, #0f0f0f 0%, #000000 100%);
+            background: radial-gradient(circle, #0a0a0a 0%, #000 100%);
             color: #00ff00;
             font-family: 'Segoe UI', sans-serif;
             display: flex;
@@ -14,97 +14,54 @@
             align-items: center;
             padding: 20px;
             margin: 0;
-            min-height: 100vh;
         }
         .container {
             border: 2px solid #00ff00;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 20px;
-            width: 90%;
+            width: 92%;
             max-width: 400px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
         }
-        h1 { text-align: center; font-size: 1.5em; text-shadow: 0 0 10px #00ff00; }
-        .box { background: #111; border: 1px solid #333; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
-        label { font-size: 0.8em; color: #888; display: block; margin-bottom: 8px; font-weight: bold; }
-        input[type="range"] { width: 100%; accent-color: #00ff00; cursor: pointer; }
-        button { 
-            width: 100%; padding: 15px; background: #00ff00; border: none; 
-            border-radius: 8px; font-weight: bold; cursor: pointer; color: #000; 
-            font-size: 1.1em; transition: 0.3s;
-        }
-        button:active { transform: scale(0.98); background: #00cc00; }
+        h2 { text-align: center; margin-bottom: 5px; text-shadow: 0 0 10px #00ff00; color: #fff; }
+        .subtitle { text-align: center; font-size: 10px; color: #888; margin-bottom: 20px; letter-spacing: 1px; }
         
-        #result-panel { display: none; margin-top: 20px; border-top: 1px dashed #00ff00; padding-top: 20px; }
-        .stat { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9em; }
-        .vip-tag { color: #fff; font-weight: bold; }
-        .console-text { font-family: monospace; font-size: 0.75em; color: #00ff00; margin-bottom: 10px; }
+        .box { background: #111; border: 1px solid #222; padding: 12px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid #00ff00; }
+        label { font-size: 0.7em; color: #aaa; display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="range"] { width: 100%; accent-color: #00ff00; cursor: pointer; }
+        
+        button { 
+            width: 100%; padding: 16px; background: #00ff00; border: none; 
+            border-radius: 10px; font-weight: bold; cursor: pointer; color: #000; 
+            font-size: 1em; text-transform: uppercase; margin-top: 10px;
+        }
+        button:active { transform: scale(0.96); }
+
+        #console { 
+            display: none; background: #000; border: 1px solid #004400; 
+            padding: 15px; border-radius: 10px; margin-top: 20px; 
+            font-family: monospace; font-size: 0.8em; color: #00ff00;
+        }
+        .bar-container { width: 100%; height: 4px; background: #111; margin-top: 10px; border-radius: 2px; }
+        .bar-fill { width: 0%; height: 100%; background: #00ff00; transition: width 0.4s; }
+        
+        .stats-final { display: none; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; text-align: center; }
+        .vip-val { color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>SENSI MAX <span style="color:white">VIP</span></h1>
+    <h2>SENSI MASTER <span style="color:#00ff00">VIP</span></h2>
+    <p class="subtitle">SISTEMA DE OTIMIZAÇÃO AVANÇADA</p>
     
     <div class="box">
-        <label>OTIMIZAR REGEDIT (AUTO-HS)</label>
-        <input type="range" min="1" max="100" value="95">
+        <label>MELHORAR REGEDIT (HS)</label>
+        <input type="range" value="95">
     </div>
 
     <div class="box">
-        <label>ESTABILIZAR FPS (60/90 FPS)</label>
-        <input type="range" min="1" max="100" value="100">
-    </div>
-
-    <button onclick="aplicarSensi()">OTIMIZAR AGORA</button>
-
-    <div id="result-panel">
-        <div class="console-text" id="console"></div>
-        <div id="final-stats" style="display:none;">
-            <p style="text-align:center; color: #fff; font-weight: bold;">✅ CONFIGURAÇÃO INJETADA!</p>
-            <div class="stat"><span>Geral:</span> <span class="vip-tag">98</span></div>
-            <div class="stat"><span>Red Dot:</span> <span class="vip-tag">92</span></div>
-            <div class="stat"><span>Mira 2x:</span> <span class="vip-tag">100</span></div>
-            <div class="stat"><span>DPI Recomendada:</span> <span class="vip-tag">720 ou 800</span></div>
-            <p style="font-size: 0.7em; color: #888; text-align: center; margin-top: 15px;">Minimize e abra o jogo para aplicar as mudanças.</p>
-        </div>
-    </div>
-</div>
-
-<script>
-    function aplicarSensi() {
-        const panel = document.getElementById('result-panel');
-        const consoleDiv = document.getElementById('console');
-        const finalStats = document.getElementById('final-stats');
-        
-        panel.style.display = 'block';
-        finalStats.style.display = 'none';
-        consoleDiv.innerHTML = "";
-        
-        const logs = [
-            "> Analisando hardware...",
-            "> Limpando cache de GPU...",
-            "> Calibrando sensibilidade Y...",
-            "> Sucesso!"
-        ];
-
-        let i = 0;
-        const interval = setInterval(() => {
-            if (i < logs.length) {
-                consoleDiv.innerHTML += logs[i] + "<br>";
-                i++;
-            } else {
-                clearInterval(interval);
-                setTimeout(() => {
-                    consoleDiv.style.display = 'none';
-                    finalStats.style.display = 'block';
-                }, 500);
-            }
-        }, 600);
-    }
-</script>
-
-</body>
-</html>
+        <label>ESTABILIZAR FPS (MAX)</label>
+        <input type="range" value="
 
