@@ -3,74 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENSI VIP S20 FE - PRO</title>
+    <title>Sensi Master Pro</title>
     <style>
-        body {
-            background: radial-gradient(circle, #0f0f0f 0%, #000000 100%);
-            color: #00ff00;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            border: 2px solid #00ff00;
-            border-radius: 15px;
-            padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-        }
-        h1 { text-align: center; font-size: 1.5em; text-shadow: 0 0 10px #00ff00; }
-        .box { background: #111; border: 1px solid #333; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
-        label { font-size: 0.8em; color: #888; display: block; margin-bottom: 5px; }
-        input[type="range"] { width: 100%; accent-color: #00ff00; }
-        button { width: 100%; padding: 15px; background: #00ff00; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: #000; font-size: 1em; }
-        
-        /* Painel de Resultado */
-        #result-panel { display: none; margin-top: 20px; border-top: 1px dashed #00ff00; padding-top: 20px; }
-        .stat { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9em; }
-        .vip-tag { color: #ffcc00; font-weight: bold; }
+        body { background: #050505; color: #00ff00; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .card { border: 1px solid #00ff00; border-radius: 12px; padding: 20px; width: 100%; max-width: 380px; background: #000; box-shadow: 0 0 15px #00ff0033; }
+        .feature { background: #111; padding: 10px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #00ff00; }
+        .feature span { font-size: 0.8em; color: #888; }
+        button { width: 100%; padding: 15px; background: #00ff00; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        #console { display: none; background: #001100; padding: 15px; border-radius: 8px; margin-top: 15px; font-family: monospace; font-size: 0.8em; color: #00ff00; border: 1px solid #003300; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>SENSI S20 FE <span style="color:white">VIP</span></h1>
+<div class="card">
+    <h2 style="text-align: center; margin-top: 0;">Sensi <span style="color:#fff">Master</span></h2>
     
-    <div class="box">
-        <label>MELHORAR REGEDIT (HS)</label>
-        <input type="range" min="1" max="100" value="95">
+    <div class="feature">
+        <span>OTIMIZAÇÃO DE MEMÓRIA</span>
+        <p style="margin: 5px 0;">Limpeza Automática de Cache</p>
     </div>
 
-    <div class="box">
-        <label>ESTABILIZAR FPS (60/90 FPS)</label>
-        <input type="range" min="1" max="100" value="100">
+    <div class="feature">
+        <span>AJUSTE DE SENSIBILIDADE</span>
+        <p style="margin: 5px 0;">Calibração de TouchScreen</p>
     </div>
 
-    <button onclick="aplicarSensi()">OTIMIZAR AGORA</button>
+    <button onclick="executar()">Otimizar Agora</button>
 
-    <div id="result-panel">
-        <p style="text-align:center; color: #fff; font-weight: bold;">✅ CONFIGURAÇÃO ATIVADA!</p>
-        <div class="stat"><span>Geral:</span> <span class="vip-tag">98</span></div>
-        <div class="stat"><span>Red Dot:</span> <span class="vip-tag">92</span></div>
-        <div class="stat"><span>Mira 2x:</span> <span class="vip-tag">100</span></div>
-        <div class="stat"><span>DPI Recomendada:</span> <span class="vip-tag">720 ou 800</span></div>
-        <p style="font-size: 0.7em; color: #888; text-align: center; margin-top: 15px;">Agora abra seu Free Fire e sinta a diferença!</p>
-    </div>
+    <div id="console"></div>
 </div>
 
 <script>
-    function aplicarSensi() {
-        const panel = document.getElementById('result-panel');
-        alert("Otimizando registros do S20 FE...");
-        setTimeout(() => {
-            panel.style.display = 'block';
-            window.scrollTo(0, document.body.scrollHeight);
-        }, 500);
+    function executar() {
+        const consoleDiv = document.getElementById('console');
+        consoleDiv.style.display = 'block';
+        consoleDiv.innerHTML = "";
+        const logs = [
+            "> Localizando Free Fire...",
+            "> Limpando processos em segundo plano...",
+            "> Ajustando prioridade de CPU...",
+            "> Otimizando resposta do Touch...",
+            "> CONFIGURAÇÃO RECOMENDADA:",
+            "> DPI: 620 | Velocidade do Ponteiro: Máxima",
+            "✅ SISTEMA PRONTO!"
+        ];
+
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < logs.length) {
+                consoleDiv.innerHTML += logs[i] + "<br>";
+                i++;
+            } else {
+                clearInterval(interval);
+                alert("Otimização concluída! Configure sua DPI para 620 no sistema para melhor resultado.");
+            }
+        }, 800);
     }
 </script>
 
