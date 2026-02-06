@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SENSI VIP V2</title>
+    <style>
+        body { margin: 0; padding: 0; background: #000; color: white; font-family: sans-serif; }
+        #painel { padding: 20px; border: 2px solid #00ff00; border-radius: 15px; margin: 10px; }
+        h3 { color: #00ff00; text-align: center; }
+        .control { margin-bottom: 20px; }
+        input[type=range] { width: 100%; accent-color: #00ff00; height: 25px; }
+        label { display: block; color: #00ff00; font-weight: bold; font-size: 12px; }
+        button { width: 100%; padding: 15px; background: #00ff00; border: none; border-radius: 8px; font-weight: 900; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="painel">
+        <h3>SENSI VIP S20 FE</h3>
+        <div class="control">
+            <label>Puxada Vertical (Y) 1.8x</label>
+            <input type="range" min="1" max="3" step="0.1" value="1.8">
+        </div>
+        <div class="control">
+            <label>Otimização Anti-Lag</label>
+            <input type="range" min="1" max="10" value="5">
+        </div>
+        <button onclick="alert('Sensi Ativada!')">SALVAR NO SISTEMA</button>
+    </div>
+</body>
+</html>
+
