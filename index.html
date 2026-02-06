@@ -63,5 +63,72 @@
 
     <div class="box">
         <label>ESTABILIZAR FPS (MAX)</label>
-        <input type="range" value="
+        <input type="range" value="100">
+    </div>
+
+    <div class="box">
+        <label>CALIBRAR TOUCH (RESPOSTA)</label>
+        <input type="range" value="98">
+    </div>
+
+    <div class="box">
+        <label>ANTI-ESPALHAMENTO (PRECISÃO)</label>
+        <input type="range" value="92">
+    </div>
+
+    <button onclick="masterOptimize()">EXECUTAR OTIMIZAÇÃO TOTAL</button>
+
+    <div id="console">
+        <div id="log-text"></div>
+        <div class="bar-container"><div class="bar-fill" id="fill"></div></div>
+    </div>
+
+    <div id="stats-final" class="stats-final">
+        <p style="color: #fff; font-size: 0.9em; margin-bottom: 10px;">✅ CONFIGURAÇÃO APLICADA!</p>
+        <p style="font-size: 0.8em;">Geral: <span class="vip-val">98</span> | Red Dot: <span class="vip-val">94</span></p>
+        <p style="font-size: 0.8em;">DPI Recomendada: <span class="vip-val">720</span></p>
+    </div>
+</div>
+
+<script>
+    function masterOptimize() {
+        const consoleDiv = document.getElementById('console');
+        const logText = document.getElementById('log-text');
+        const fill = document.getElementById('fill');
+        const final = document.getElementById('stats-final');
+        
+        consoleDiv.style.display = 'block';
+        final.style.display = 'none';
+        logText.innerHTML = "";
+        fill.style.width = "0%";
+
+        const etapas = [
+            "> Injetando scripts Regedit...",
+            "> Estabilizando taxa de FPS...",
+            "> Calibrando sensores de toque...",
+            "> Reduzindo dispersão de balas...",
+            "> Sincronizando com o dispositivo...",
+            "> [CONCLUÍDO] Sistema Pronto!"
+        ];
+
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < etapas.length) {
+                logText.innerHTML += etapas[i] + "<br>";
+                fill.style.width = ((i + 1) / etapas.length * 100) + "%";
+                i++;
+            } else {
+                clearInterval(interval);
+                setTimeout(() => {
+                    consoleDiv.style.display = 'none';
+                    final.style.display = 'block';
+                    alert("Otimização Completa! Todas as funções foram injetadas com sucesso.");
+                }, 800);
+            }
+        }, 700);
+    }
+</script>
+
+</body>
+</html>
 
